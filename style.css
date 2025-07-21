@@ -1,0 +1,47 @@
+/* style.css */
+/* Reseteo básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* El body ocupa toda la pantalla y fondo oscuro */
+body {
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+/* El video ocupa toda la pantalla */
+#video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Canvas sobre el video */
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* mismo tamaño que el video */
+}
+
+/* Botón flotante para magia */
+#magicBtn {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 15%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  border-radius: 12px;
+  font-size: 2rem;
+  color: #fff;
+  touch-action: manipulation; /* mejora la respuesta táctil */
+}
