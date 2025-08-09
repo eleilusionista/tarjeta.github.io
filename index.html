@@ -2,24 +2,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
   <title>Magia Rayos X</title>
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <!-- MediaPipe Hands -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
 </head>
 <body>
-  <!-- Video en vivo de la cámara -->
-  <video id="video" autoplay playsinline></video>
-  <!-- Canvas transparente para superposiciones -->
+  <video id="video" playsinline autoplay muted></video>
   <canvas id="overlay"></canvas>
-  <!-- Botón único para los 3 toques secretos -->
-  <button id="magicBtn">🔍</button>
 
-  <!-- Lógica JS -->
+  <button id="magicBtn" aria-label="Revelar">🔍 Revelar</button>
+  <div id="msg" role="status" aria-live="polite"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
