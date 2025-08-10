@@ -75,10 +75,19 @@ hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:0.7,min
 hands.onResults(onResults);
 
 // Cam
-startCamera().then(loop).catch(()=>{});
+startCamera().then(loop).catch(err => {
+  console.error('No se pudo iniciar la cámara', err);
+  alert('No se pudo acceder a la cámara. Revisa los permisos.');
+});
+
 async function startCamera(){
-  const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false});
-  video.srcObject=stream; await video.play(); resizeCanvas();
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},
+    audio:false
+  });
+  video.srcObject = stream;
+  await video.play();
+  resizeCanvas();
 }
 function resizeCanvas(){ const r=arBox.getBoundingClientRect(); canvas.width=r.width; canvas.height=r.height; }
 addEventListener('resize',resizeCanvas);
