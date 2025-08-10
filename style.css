@@ -1,65 +1,20 @@
 /* style.css */
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --frame-w: 920px;
-  --accent: #0ea5e9;
-}
 html,body{height:100%}
-body{background:#f2f2f2; font-family:system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:#111}
+body{background:#eee;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#111}
 
-.frame{
-  max-width:var(--frame-w);
-  margin:20px auto;
-  padding:18px 16px 22px;
-  border:2px solid #cfcfcf;
-  border-radius:16px;
-  background:#fff;
-}
+.frame{max-width:900px;margin:16px auto;padding:16px;border:2px solid #bbb;border-radius:14px;background:#fff}
+.title{text-align:center;font-weight:800;font-size:1.6rem;margin:6px 0 16px}
 
-.title{
-  text-align:center;
-  font-size:1.6rem;
-  font-weight:700;
-  margin:6px 0 18px;
-}
-
-/* Área AR (cuadro con video + canvas) */
-.ar{
-  position:relative;
-  width:100%;
-  max-width:640px;
-  margin:0 auto 16px;
-  border:2px solid #cfcfcf;
-  border-radius:12px;
-  background:#000;
-  overflow:hidden;
-  aspect-ratio: 3 / 4; /* alto estilo “ventana” */
-}
-.ar > video,
-.ar > canvas{
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  object-fit:cover;
-}
+/* Ventana cuadrada */
+.ar{position:relative;border:2px solid #bbb;border-radius:12px;overflow:hidden;
+    width:100%;max-width:640px;margin:0 auto;background:#000;aspect-ratio:1/1}
+.ar>video,.ar>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* Botón principal */
-#magicBtn{
-  position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
-  padding:12px 16px;
-  border:2px solid #fff; border-radius:12px;
-  background:rgba(255,255,255,.12); color:#fff;
-  font-size:1rem; letter-spacing:.2px;
-  touch-action:none; user-select:none;
-}
+#magicBtn{display:block;margin:14px auto 8px;padding:12px 16px;background:#0ea5e9;color:#fff;border:none;border-radius:12px;font-weight:700;width:min(320px,90%);touch-action:none;user-select:none}
 
-/* Fila de 3 botones inferiores */
-.cta-row{
-  display:flex; gap:12px; justify-content:center; margin-top:18px;
-}
-.cta{
-  display:inline-block;
-  border:2px solid #cfcfcf; border-radius:10px;
-  padding:10px 14px; text-decoration:none; color:#111;
-  background:#e9f7ff;
-}
-.cta:hover{ border-color:var(--accent) }
+/* Fila de iconos */
+.cta-row{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;border:2px solid #cfcfcf;background:#e9f7ff;color:#111;text-decoration:none}
+.icon-btn:hover{filter:brightness(.98)}
