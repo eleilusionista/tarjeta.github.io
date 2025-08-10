@@ -4,17 +4,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-  <title>Magia Rayos X</title>
+  <title>ele ilusionista</title>
   <link rel="stylesheet" href="style.css" />
   <!-- MediaPipe Hands -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
 </head>
 <body>
-  <video id="video" playsinline autoplay muted></video>
-  <canvas id="overlay"></canvas>
+  <main class="frame">
+    <h1 class="title">ele ilusionista</h1>
 
-  <button id="magicBtn" aria-label="Revelar">🔍 Revelar</button>
-  <div id="msg" role="status" aria-live="polite"></div>
+    <section class="ar">
+      <video id="video" playsinline autoplay muted></video>
+      <canvas id="overlay"></canvas>
+      <button id="magicBtn" aria-label="Aplicar rayos X">Aplicar rayos X</button>
+    </section>
+
+    <footer class="cta-row">
+      <a class="cta" id="ig" href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener">Instagram</a>
+      <a class="cta" id="wa" href="https://wa.me/56912345678" target="_blank" rel="noopener">Contacto</a>
+      <a class="cta" id="coffee" href="https://www.buymeacoffee.com/tuusuario" target="_blank" rel="noopener">Invítame un café ☕</a>
+    </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
