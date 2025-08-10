@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
   <title>ele ilusionista</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- MediaPipe Hands -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.min.js"></script>
 </head>
 <body>
@@ -16,13 +15,26 @@
     <section class="ar">
       <video id="video" playsinline autoplay muted></video>
       <canvas id="overlay"></canvas>
-      <button id="magicBtn" aria-label="Aplicar rayos X">Aplicar rayos X</button>
     </section>
 
+    <button id="magicBtn" aria-label="Aplicar rayos X">Aplicar rayos X</button>
+
     <footer class="cta-row">
-      <a class="cta" id="ig" href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener">Instagram</a>
-      <a class="cta" id="wa" href="https://wa.me/56912345678" target="_blank" rel="noopener">Contacto</a>
-      <a class="cta" id="coffee" href="https://www.buymeacoffee.com/tuusuario" target="_blank" rel="noopener">Invítame un café ☕</a>
+      <!-- Cambia los href por tus enlaces reales -->
+      <a class="icon-btn" href="https://instagram.com/TU_USUARIO" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- ícono Instagram -->
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2.2A2.8 2.8 0 1 1 9.2 12 2.8 2.8 0 0 1 12 9.2ZM18 6.8a1.2 1.2 0 1 0 1.2 1.2A1.2 1.2 0 0 0 18 6.8Z"/></svg>
+      </a>
+
+      <a class="icon-btn" href="https://wa.me/56912345678" target="_blank" rel="noopener" aria-label="Contacto">
+        <!-- ícono teléfono/whatsapp simple -->
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.94 14.56L2 22l5.6-1.05A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-3.95 15l-.28-.12-3 .56.56-3-.12-.28A8 8 0 0 1 12 4Zm4.35 9.7c-.24-.12-1.4-.69-1.62-.77s-.38-.12-.54.12-.62.77-.76.94-.28.17-.52.06a6.54 6.54 0 0 1-1.92-1.19 7.17 7.17 0 0 1-1.33-1.65c-.14-.23 0-.35.1-.47s.24-.28.35-.43a1.54 1.54 0 0 0 .23-.43.47.47 0 0 0 0-.45c0-.12-.54-1.3-.74-1.78s-.4-.41-.54-.42h-.46a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2 4.74 4.74 0 0 0 1 2.48 10.8 10.8 0 0 0 4.1 3.83 14 14 0 0 0 1.36.55 3.27 3.27 0 0 0 1.5.1 2.45 2.45 0 0 0 1.6-1.13 2 2 0 0 0 .14-1.13c-.06-.08-.22-.13-.46-.25Z"/></svg>
+      </a>
+
+      <a class="icon-btn" href="https://www.buymeacoffee.com/tuusuario" target="_blank" rel="noopener" aria-label="Invítame un café">
+        <!-- ícono café -->
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M3 6h13v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V6Zm13 0h3a3 3 0 1 1 0 6h-3V6Zm-12 12h16v2H4z"/></svg>
+      </a>
     </footer>
   </main>
 
