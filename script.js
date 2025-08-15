@@ -34,7 +34,23 @@ const smooth = {
   pinky:{cx:0,cy:0,angle:0,len:0,ready:false},
 };
 
-const P=(lm,i,W,H)=>({x:lm[i].x*W,y:lm[i].y*H});
+// Ajusta las coordenadas de los puntos (landmarks) de MediaPipe al tamaño
+// del canvas teniendo en cuenta el recorte del video al usar `object-fit: cover`.
+// Sin este ajuste, los huesos se dibujan desfasados respecto a la mano real.
+const P=(lm,i,W,H)=>{
+  // Dimensiones reales del stream de video
+  const vW = video.videoWidth;
+  const vH = video.videoHeight;
+  // Escala aplicada para cubrir el canvas (puede recortar el video)
+  const scale = Math.max(W / vW, H / vH);
+  // Desplazamiento generado por el recorte
+  const offsetX = (scale * vW - W) / 2;
+  const offsetY = (scale * vH - H) / 2;
+  return {
+    x: lm[i].x * vW * scale - offsetX,
+    y: lm[i].y * vH * scale - offsetY
+  };
+};
 function palmPose(lm,W,H){
   const pts=[0,5,9,13,17].map(i=>P(lm,i,W,H));
   const cx=pts.reduce((s,p)=>s+p.x,0)/pts.length;
