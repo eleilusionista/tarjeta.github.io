@@ -20,7 +20,7 @@ bones.ring.src   = './assets/bones/ring.png';
 bones.pinky.src  = './assets/bones/pinky.png';
 
 // State
-let xrActive=false, phase=0, suit='', isMajor=false, vibrCount=0, vibrTimer=null, auto7T=null;
+let xrActive=false, phase=0, suit='', isMajor=false, vibrCount=0, vibrTimer=null, auto7T=null, isSelfie=false;
 
 // Smoothing
 const ALPHA=0.75, lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,l,h)=>Math.max(l,Math.min(h,v));
@@ -87,7 +87,7 @@ function drawBone(img,cx,cy,angle,W,H,alpha=0.9){
 
 // MediaPipe
 const hands=new Hands({locateFile:f=>`https://cdn.jsdelivr.net/npm/@mediapipe/hands/${f}`});
-hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:0.7,minTrackingConfidence:0.7});
+hands.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:0.7,minTrackingConfidence:0.7,selfieMode:false});
 hands.onResults(onResults);
 
 // Cam
@@ -103,6 +103,15 @@ async function startCamera(){
   });
   video.srcObject = stream;
   await video.play();
+
+  const track=stream.getVideoTracks()[0];
+  const settings=track.getSettings();
+  isSelfie=settings.facingMode&&settings.facingMode==='user';
+  const transform=isSelfie?'scaleX(-1)':'';
+  video.style.transform=transform;
+  canvas.style.transform=transform;
+  hands.setOptions({selfieMode:isSelfie});
+
   resizeCanvas();
 }
 function resizeCanvas(){ const r=arBox.getBoundingClientRect(); canvas.width=r.width; canvas.height=r.height; }
