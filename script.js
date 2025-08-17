@@ -202,6 +202,5 @@ btn.addEventListener('pointerup', ()=>{
   const n=(vibrCount>0)?(isMajor?vibrCount+7:vibrCount):7; reveal(n); phase=0;
 });
 function reveal(num){
-  let v; if(num===1)v='A'; else if(num<=10)v=String(num); else if(num===11)v='J'; else if(num===12)v='Q'; else v='K';
-  const s=suit.toLowerCase(); cardImg.src=`./assets/${v}${s}.svg`;
+  cardImg.src = getCardAsset(num, suit);
 }
